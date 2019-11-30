@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import firebase from 'firebase';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
-import db from '../src/config'
-
+import db from '../src/config';
 const BLUE = '#0D5182';
 const WHITE = '#F7F4EF';
 const RED = '#C21D2D';
@@ -15,7 +13,6 @@ export default class SurveyCompletedScreen extends Component {
     componentDidMount(){
         const answers = this.props.navigation.getParam('surveyAnswers', defaultAnswers);
         this.writeSurveyData(answers);
-        db.ref().on
     }
     writeSurveyData(data) {
         db.ref('/surveys').push({
