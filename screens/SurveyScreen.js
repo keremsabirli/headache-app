@@ -5,7 +5,11 @@ import { COLORS } from '../res/validColors';
 
 const BLUE = '#0D5182';
 const WHITE = '#F7F4EF';
-const RED = '#C21D2D';
+const RED = '#e2325b';
+const Peach = '#ffdab9';
+const DarkStrongBlue = '#1c0f45';
+const Yeni = '#4337b3';
+
 
 const survey = [
     {
@@ -13,256 +17,873 @@ const survey = [
         questionText: 'Bu bir baş ağrısı anketidir.'
     },
     {
+        questionType: 'SelectionGroup',
+        questionText:
+            'Sigara kullanıyor musunuz?',
+        questionId: 'sigara',
+        options: [
+            {
+                optionText: 'EVET',
+                value: 'evet'
+            },
+            {
+                optionText: 'HAYIR',
+                value: 'HAYIR'
+            }
+        ]
+    },
+    {
+        questionType: 'SelectionGroup',
+        questionText:
+            'Alkol kullanıyor musunuz?',
+        questionId: 'alkol',
+        options: [
+            {
+                optionText: 'EVET',
+                value: 'evet'
+            },
+            {
+                optionText: 'HAYIR',
+                value: 'HAYIR'
+            }
+        ]
+    },
+    {
+        questionType: 'SelectionGroup',
+        questionText:
+            'Çay, kahve, meşrubat vb. tüketiyor musunuz?',
+        questionId: 'icecekler',
+        options: [
+            {
+                optionText: 'EVET',
+                value: 'evet'
+            },
+            {
+                optionText: 'HAYIR',
+                value: 'HAYIR'
+            }
+        ]
+    },
+    {
         questionType: 'TextInput',
-        questionText: 'Baş ağrınız hangi bölgede?',
-        questionId: 'bolge',
+        questionText: 'Diğer Alışkanlıklar?',
+        questionId: 'digerAliskanliklar',
+        placeholderText: 'Buraya yazınız.',
+    },
+    {
+        questionType: 'MultipleSelectionGroup',
+        questionText:
+            'Geçmişte yaşadığınız sağlık sorunlarını seçiniz.',
+        questionId: 'saglikSorunlari',
+        questionSettings: {
+            maxMultiSelect: 7,
+            minMultiSelect: -1,
+        },
+        options: [
+            {
+                optionText: 'Epilepsi (sara)',
+                value: 'epilepsi'
+            },
+            {
+                optionText: 'Astım',
+                value: 'astim'
+            },
+            {
+                optionText: 'Şeker Hastalığı',
+                value: 'sekerHastaligi'
+            },
+            {
+                optionText: 'Yüksek Tansiyon',
+                value: 'yuksekTansiyon'
+            },
+            {
+                optionText: 'Boyun Fıtığı/Ağrısı',
+                value: 'boyunFitigi'
+            },
+            {
+                optionText: 'Sinüzit',
+                value: 'sinuzit'
+            },
+            {
+                optionText: 'Mide Rahatsızlığı',
+                value: 'mideRahatsizligi'
+            }
+        ]
+    },
+
+    {
+        questionType: 'MultipleSelectionGroup',
+        questionText:
+            'Geçmişte yaşadığınız sağlık sorunlarını seçiniz.',
+        questionId: 'saglikSorunlari',
+        questionSettings: {
+            maxMultiSelect: 7,
+            minMultiSelect: -1,
+        },
+        options: [
+            {
+                optionText: 'Ameliyat',
+                value: 'ameliyat'
+            },
+            {
+                optionText: 'Troid Bezi Hastalığı(guatr)',
+                value: 'troidBezi'
+            },
+            {
+                optionText: 'Anemi(kansızlık)',
+                value: 'anemi'
+            },
+            {
+                optionText: 'Unutkanlık',
+                value: 'unutkanlik'
+            },
+            {
+                optionText: 'Uykusuzluk',
+                value: 'uykusuzluk'
+            },
+            {
+                optionText: 'Horlama',
+                value: 'horlama'
+            },
+            {
+                optionText: 'Depresyon',
+                value: 'depresyon'
+            }
+        ]
+    },
+    {
+        questionType: 'MultipleSelectionGroup',
+        questionText:
+            'Geçmişte yaşadığınız sağlık sorunlarını seçiniz.',
+        questionId: 'saglikSorunlari',
+        questionSettings: {
+            maxMultiSelect: 7,
+            minMultiSelect: -1,
+        },
+        options: [
+            {
+                optionText: 'Vitamin Eksikliği',
+                value: 'vitaminEksikligi'
+            },
+            {
+                optionText: 'Polinöropati',
+                value: 'polinöropati'
+            },
+            {
+                optionText: 'Tremor(ellerde titreme)',
+                value: 'tremor'
+            },
+            {
+                optionText: 'Diş Hastalıkları',
+                value: 'disHastaliklari'
+            },
+            {
+                optionText: 'Dış Gıcırdatması(uykuda)',
+                value: 'disGicirdatmasi'
+            },
+            {
+                optionText: 'Göz Bozukluğu',
+                value: 'gozBozuklugu'
+            },
+            {
+                optionText: 'Glokom(Göz Tansiyonu)',
+                value: 'glokom'
+            }
+        ]
+    },
+    {
+        questionType: 'MultipleSelectionGroup',
+        questionText:
+            'Geçmişte yaşadığınız sağlık sorunlarını seçiniz.',
+        questionId: 'saglikSorunlari',
+        questionSettings: {
+            maxMultiSelect: 7,
+            minMultiSelect: -1,
+        },
+        options: [
+            {
+                optionText: 'Romatizmal Hastalıklar',
+                value: 'romatizmalHastalilar'
+            },
+            {
+                optionText: 'Böbrek Taşı',
+                value: 'bobrekTasi'
+            },
+            {
+                optionText: 'Menenjit',
+                value: 'menenjit'
+            },
+            {
+                optionText: 'Kalp Hastalığı(kalp yetmezliği, ritm bozukluğu, ileti bozukluğu vb.)',
+                value: 'kalpHastaligi'
+            },
+            {
+                optionText: 'Kontipasyon(kanbızlık)',
+                value: 'kontipssyon'
+            },
+            {
+                optionText: 'Alerji(ilaçlar dahil)',
+                value: 'alerji'
+            },
+            {
+                optionText: 'Hepatit(sarılık)',
+                value: 'horlam'
+            }
+        ]
+    },
+    {
+        questionType: 'MultipleSelectionGroup',
+        questionText:
+            'Bugün için mevcut olan sağlık sorunlarınız seçiniz.',
+        questionId: 'saglikSorunlari',
+        questionSettings: {
+            maxMultiSelect: 7,
+            minMultiSelect: -1,
+        },
+        options: [
+            {
+                optionText: 'Epilepsi (sara)',
+                value: 'epilepsi'
+            },
+            {
+                optionText: 'Astım',
+                value: 'astim'
+            },
+            {
+                optionText: 'Şeker Hastalığı',
+                value: 'sekerHastaligi'
+            },
+            {
+                optionText: 'Yüksek Tansiyon',
+                value: 'yuksekTansiyon'
+            },
+            {
+                optionText: 'Boyun Fıtığı/Ağrısı',
+                value: 'boyunFitigi'
+            },
+            {
+                optionText: 'Sinüzit',
+                value: 'sinuzit'
+            },
+            {
+                optionText: 'Mide Rahatsızlığı',
+                value: 'mideRahatsizligi'
+            }
+        ]
+    },
+    {
+        questionType: 'MultipleSelectionGroup',
+        questionText:
+            'Bugün için mevcut olan sağlık sorunlarınız seçiniz.',
+        questionId: 'mevcutSaglikSorunlari',
+        questionSettings: {
+            maxMultiSelect: 7,
+            minMultiSelect: -1,
+        },
+        options: [
+            {
+                optionText: 'Ameliyat',
+                value: 'ameliyat'
+            },
+            {
+                optionText: 'Troid Bezi Hastalığı(guatr)',
+                value: 'troidBezi'
+            },
+            {
+                optionText: 'Anemi(kansızlık)',
+                value: 'anemi'
+            },
+            {
+                optionText: 'Unutkanlık',
+                value: 'unutkanlik'
+            },
+            {
+                optionText: 'Uyukusuzluk',
+                value: 'uykusuzluk'
+            },
+            {
+                optionText: 'Horlama',
+                value: 'horlama'
+            },
+            {
+                optionText: 'Depresyon',
+                value: 'depresyon'
+            }
+        ]
+    },
+    {
+        questionType: 'MultipleSelectionGroup',
+        questionText:
+            'Bugün için mevcut olan sağlık sorunlarınız seçiniz.',
+        questionId: 'mevcutSaglikSorunlari',
+        questionSettings: {
+            maxMultiSelect: 7,
+            minMultiSelect: -1,
+        },
+        options: [
+            {
+                optionText: 'Vitamin Eksikliği',
+                value: 'vitaminEksikligi'
+            },
+            {
+                optionText: 'Polinöropati',
+                value: 'polinöropati'
+            },
+            {
+                optionText: 'Tremor(ellerde titreme)',
+                value: 'tremor'
+            },
+            {
+                optionText: 'Diş Hastalıkları',
+                value: 'disHastaliklari'
+            },
+            {
+                optionText: 'Dış Gıcırdatması(uykuda)',
+                value: 'disGicirdatmasi'
+            },
+            {
+                optionText: 'Göz Bozukluğu',
+                value: 'gozBozuklugu'
+            },
+            {
+                optionText: 'Glokom(Göz Tansiyonu)',
+                value: 'glokom'
+            }
+        ]
+    },
+    {
+        questionType: 'MultipleSelectionGroup',
+        questionText:
+            'Bugün için mevcut olan sağlık sorunlarınız seçiniz.',
+        questionId: 'mevcutSaglikSorunlari',
+        questionSettings: {
+            maxMultiSelect: 7,
+            minMultiSelect: -1,
+        },
+        options: [
+            {
+                optionText: 'Romatizmal Hastalıklar',
+                value: 'romatizmalHastalilar'
+            },
+            {
+                optionText: 'Böbrek Taşı',
+                value: 'bobrekTasi'
+            },
+            {
+                optionText: 'Menenjit',
+                value: 'menenjit'
+            },
+            {
+                optionText: 'Kalp Hastalığı(kalp yetmezliği, ritm bozukluğu, ileti bozukluğu vb.)',
+                value: 'kalpHastaligi'
+            },
+            {
+                optionText: 'Kontipasyon(kanbızlık)',
+                value: 'kontipssyon'
+            },
+            {
+                optionText: 'Alerji(ilaçlar dahil)',
+                value: 'alerji'
+            },
+            {
+                optionText: 'Hepatit(sarılık)',
+                value: 'horlam'
+            }
+        ]
+    },
+    {
+        questionType: 'TextInput',
+        questionText: 'Bu hastalıklardan biri veya birkaçı mevcut ise ve bu hastalıklar için ilaç kullanılıyorsa, kullanılan ilaçların isimlerini yazınız.',
+        questionId: 'ilac',
         placeholderText: 'Buraya yazınız.',
     },
     {
         questionType: 'NumericInput',
-        questionText: 'It also supports numeric input.\n\nEnter your favorite number here!',
-        questionId: 'favoriteNumber',
+        questionText: 'Baş ağrılarınız ilk başladığında kaç yaşındaydınız?',
+        questionId: 'basladigiYas',
         placeholderText: '',
     },
     {
         questionType: 'SelectionGroup',
         questionText:
-            'Naturally Simple Survey also has multiple choice questions. By default they acts like checkboxes, answers can be selected and deselected.\n\nWhat is your favorite pet?',
-        questionId: 'favoritePet',
+            'Daha önce baş ağrılarınız nedeniyle doktora gittiniz mi?',
+        questionId: 'doktoraGitmek',
         options: [
             {
-                optionText: 'Dogs',
-                value: 'dog'
+                optionText: 'EVET',
+                value: 'evet'
             },
             {
-                optionText: 'Cats',
-                value: 'cat'
+                optionText: 'HAYIR',
+                value: 'HAYIR'
+            }
+        ]
+    },
+    {
+        questionType: 'TextInput',
+        questionText: 'Baş ağrınız için hangi tanı(lar) koyuldu?',
+        questionId: 'tanilar',
+        placeholderText: 'Buraya yazınız.',
+    },
+    {
+        questionType: 'TextInput',
+        questionText: 'Baş ağrınız için hangi tetkikler yapıldı? (örneğin; beyin filmi, kan tetkiki vb)',
+        questionId: 'tetkikler',
+        placeholderText: 'Buraya yazınız.',
+    },
+    {
+        questionType: 'TextInput',
+        questionText: 'Bugüne kadar baş ağrınız için ne gibi tedaviler aldınız ? (örneğin; ilaç, botulinum toksini, akupunktur, masaj, fizik tedavi, bitkisel ilaçlar, alternatif tedaviler…)',
+        questionId: 'tedaviler',
+        placeholderText: 'Buraya yazınız.',
+    },
+    {
+        questionType: 'TextInput',
+        questionText: 'Bugüne kadar görmüş olduğunuz tedavilerden en fazla hangisinden faydalandınız?',
+        questionId: 'tedaviFayda',
+        placeholderText: 'Buraya yazınız.',
+    },
+    {
+        questionType: 'TextInput',
+        questionText: 'Baş ağrısı nedeniyle muayene olduğunuz doktor(ların) uzmanlık alan(lar)ı neydi?',
+        questionId: 'basladigiYas',
+        placeholderText: 'Buraya yazınız.',
+    },
+    {
+        questionType: 'MultipleSelectionGroup',
+        questionText:
+            'Aşağıda adı geçen baş ağrısı ile ilgili ilaçları daha önce kullanılmış ve faydalı olmuşsa seçilmelidir.',
+        questionId: 'faydaliIlaclar',
+        questionSettings: {
+            maxMultiSelect: 6,
+            minMultiSelect: -1,
+        },
+        options: [
+            {
+                optionText: 'Dideral / Beloc / Tensinor',
+                value: 'Dideral'
             },
             {
-                optionText: 'Ferrets',
-                value: 'ferret'
+                optionText: 'Topamax / Xamate',
+                value: 'Topamax'
             },
             {
-                optionText: 'Snakes',
-                value: 'snake'
+                optionText: 'Sibelium',
+                value: 'sibelium'
             },
             {
-                optionText: 'Guinea pigs',
-                value: 'guinea'
+                optionText: 'Depakin / Convulex / Valposim',
+                value: 'depakin'
+            },
+            {
+                optionText: 'Laroxyl',
+                value: 'laroxyl'
+            },
+            {
+                optionText: 'Sandomigran',
+                value: 'sandomigran'
             }
         ]
     },
     {
         questionType: 'MultipleSelectionGroup',
         questionText:
-            'Select two or three of your favorite foods!',
-        questionId: 'favoriteFoods',
+            'Aşağıda adı geçen baş ağrısı ile ilgili ilaçları daha önce kullanılmış ve faydalı olmuşsa seçilmelidir.',
+        questionId: 'faydaliIlaclar',
         questionSettings: {
-            maxMultiSelect: 3,
-            minMultiSelect: 2,
+            maxMultiSelect: 6,
+            minMultiSelect: -1,
         },
         options: [
             {
-                optionText: 'Sticky rice dumplings',
-                value: 'sticky rice dumplings'
+                optionText: 'Maxalt',
+                value: 'maxalt'
             },
             {
-                optionText: 'Pad Thai',
-                value: 'pad thai'
+                optionText: 'Zomig',
+                value: 'zomig'
             },
             {
-                optionText: 'Steak and Eggs',
-                value: 'steak and eggs'
+                optionText: 'İmigran',
+                value: 'imigran'
             },
             {
-                optionText: 'Tofu',
-                value: 'tofu'
+                optionText: 'Avmigran',
+                value: 'avmigran'
             },
             {
-                optionText: 'Ice cream!',
-                value: 'ice cream'
+                optionText: 'Aspirin',
+                value: 'aspirin'
             },
             {
-                optionText: 'Injera',
-                value: 'injera'
-            },
-            {
-                optionText: 'Biryani',
-                value: 'biryani'
-            },
-            {
-                optionText: 'Tamales',
-                value: 'tamales'
-            },
+                optionText: 'Vermidon/Parol/ Termalgine/Minoset',
+                value: 'vermidon'
+            }
         ]
     },
     {
         questionType: 'MultipleSelectionGroup',
         questionText:
-            'Simple Survey can auto advance after a question has been answered. Select two things you do to relax:',
-        questionId: 'relax',
+            'Aşağıda adı geçen baş ağrısı ile ilgili ilaçları daha önce kullanılmış ve faydalı olmuşsa seçilmelidir.',
+        questionId: 'faydaliIlaclar',
         questionSettings: {
-            maxMultiSelect: 2,
-            minMultiSelect: 2,
-            autoAdvance: true,
+            maxMultiSelect: 6,
+            minMultiSelect: -1,
         },
         options: [
             {
-                optionText: 'Reading a good book',
-                value: 'reading'
+                optionText: 'Relpax',
+                value: 'relpax'
             },
-            {
-                optionText: 'Going on vacation',
-                value: 'vacations'
-            },
-            {
-                optionText: 'Eating meals with family',
-                value: 'meals'
-            },
-            {
-                optionText: 'Heading to the ocean',
-                value: 'ocean'
-            }
-        ]
-    },
-    {
-        questionType: 'SelectionGroup',
-        questionText:
-            'Simple Survey can also simulate radio button behavior. Pick from below: ',
-        questionId: 'radio',
-        questionSettings: {
-            allowDeselect: false,
-        },
-        options: [
-            {
-                optionText: 'I was forced to pick option 1',
-                value: 'option 1'
-            },
-            {
-                optionText: 'I have to pick option 2',
-                value: 'option 2'
-            },
-            {
-                optionText: 'I guess option 3',
-                value: 'option 3'
-            }
-        ]
-    },
-    {
-        questionType: 'SelectionGroup',
-        questionText:
-            'Simple Survey also supports default selections: ',
-        questionId: 'singleDefault',
-        questionSettings: {
-            defaultSelection: 0
-        },
-        options: [
-            {
-                optionText: 'This is the default option',
-                value: 'default'
-            },
-            {
-                optionText: 'This is the alternative option',
-                value: 'alternative'
-            },
-        ]
-    },
-    {
-        questionType: 'MultipleSelectionGroup',
-        questionText:
-            'And of course it supports multiple defaults: ',
-        questionId: 'multipleDefaults',
-        questionSettings: {
-            defaultSelection: [0, 2],
-            maxMultiSelect: 2,
-            minMultiSelect: 2,
-        },
-        options: [
-            {
-                optionText: 'This is the first default option',
-                value: 'first default'
-            },
-            {
-                optionText: 'This is the first alternate option',
-                value: 'first alternative'
-            },
-            {
-                optionText: 'This is the second default option',
-                value: 'second default'
-            },
-            {
-                optionText: 'This is the second alternate option',
-                value: 'second alternative'
-            },
-        ]
-    },
-    {
-        questionType: 'Info',
-        questionText: 'That is all for the demo, tap finish to see your results!'
-    },
-];
 
+            {
+                optionText: 'Majezik',
+                value: 'majezik'
+            },
+            {
+                optionText: 'Apranax',
+                value: 'apranax'
+            },
+            {
+                optionText: 'Sirdalud',
+                value: 'sirdalud'
+            },
+            {
+                optionText: 'Antidepresanlar',
+                value: 'antidepresanlar'
+            }
+        ]
+    },
+    {
+        questionType: 'MultipleSelectionGroup',
+        questionText:
+            'Aşağıda adı geçen baş ağrısı ile ilgili ilaçları daha önce kullanılmış ve faydalı ol(ma)mışsa seçilmelidir.',
+        questionId: 'faysizliIlaclar',
+        questionSettings: {
+            maxMultiSelect: 6,
+            minMultiSelect: -1,
+        },
+        options: [
+            {
+                optionText: 'Dideral / Beloc / Tensinor',
+                value: 'Dideral'
+            },
+            {
+                optionText: 'Topamax / Xamate',
+                value: 'Topamax'
+            },
+            {
+                optionText: 'Sibelium',
+                value: 'sibelium'
+            },
+            {
+                optionText: 'Depakin / Convulex / Valposim',
+                value: 'depakin'
+            },
+            {
+                optionText: 'Laroxyl',
+                value: 'laroxyl'
+            },
+            {
+                optionText: 'Sandomigran',
+                value: 'sandomigran'
+            }
+        ]
+    },
+    {
+        questionType: 'MultipleSelectionGroup',
+        questionText:
+            'Aşağıda adı geçen baş ağrısı ile ilgili ilaçları daha önce kullanılmış ve faydalı ol(ma)mışsa seçilmelidir.',
+        questionId: 'faysizliIlaclar',
+        questionSettings: {
+            maxMultiSelect: 6,
+            minMultiSelect: -1,
+        },
+        options: [
+            {
+                optionText: 'Maxalt',
+                value: 'maxalt'
+            },
+            {
+                optionText: 'Zomig',
+                value: 'zomig'
+            },
+            {
+                optionText: 'İmigran',
+                value: 'imigran'
+            },
+            {
+                optionText: 'Avmigran',
+                value: 'avmigran'
+            },
+            {
+                optionText: 'Aspirin',
+                value: 'aspirin'
+            },
+            {
+                optionText: 'Vermidon/Parol/ Termalgine/Minoset',
+                value: 'vermidon'
+            }
+        ]
+    },
+    {
+        questionType: 'MultipleSelectionGroup',
+        questionText:
+            'Aşağıda adı geçen baş ağrısı ile ilgili ilaçları daha önce kullanılmış ve faydalı ol(ma)mışsa seçilmelidir.',
+        questionId: 'faysizliIlaclar',
+        questionSettings: {
+            maxMultiSelect: 6,
+            minMultiSelect: -1,
+        },
+        options: [
+            {
+                optionText: 'Relpax',
+                value: 'relpax'
+            },
+
+            {
+                optionText: 'Majezik',
+                value: 'majezik'
+            },
+            {
+                optionText: 'Apranax',
+                value: 'apranax'
+            },
+            {
+                optionText: 'Sirdalud',
+                value: 'sirdalud'
+            },
+            {
+                optionText: 'Antidepresanlar',
+                value: 'antidepresanlar'
+            }
+        ]
+    },
+    {
+        questionType: 'TextInput',
+        questionText: 'Baş ağrılarınız genellikle tek taraflı mı olur, çift taraflı mı?',
+        questionId: 'basAgrisiTarafi',
+        placeholderText: 'Buraya yazınız.',
+    },
+    {
+        questionType: 'TextInput',
+        questionText: 'Baş ağrılarınız hangi niteliktedir? (örneğin; zonklayıcı, künt, mengene ile sıkılır gibi vb.)?',
+        questionId: 'basAgrisiNitelikleri',
+        placeholderText: 'Buraya yazınız.',
+    },
+    {
+        questionType: 'TextInput',
+        questionText: 'Baş ağrınızın şiddeti genellikle ne derecededir? (eğer işinize konsantrasyonunuzu engelliyorsa orta; ağrı sırasında hiçbir şey yapamıyorsanız, şiddetli olarak sınıflandırınız)?',
+        questionId: 'basAgrisiSiddeti',
+        placeholderText: 'Buraya yazınız.',
+    },
+    {
+        questionType: 'SelectionGroup',
+        questionText:
+            'Merdiven çıkmak, koşmak gibi aktiviteler baş ağrınızı arttırır mı?',
+        questionId: 'kosmakArttirirMi',
+        options: [
+            {
+                optionText: 'EVET',
+                value: 'evet'
+            },
+            {
+                optionText: 'HAYIR',
+                value: 'HAYIR'
+            }
+        ]
+    },
+    {
+        questionType: 'SelectionGroup',
+        questionText:
+            'Baş ağrınıza iştahsızlık eşlik eder mi?',
+        questionId: 'istahsizlik',
+        options: [
+            {
+                optionText: 'EVET',
+                value: 'evet'
+            },
+            {
+                optionText: 'HAYIR',
+                value: 'HAYIR'
+            }
+        ]
+    },
+    {
+        questionType: 'SelectionGroup',
+        questionText:
+            'Baş ağrınıza bulantı ve/veya kusma eşlik eder mi?',
+        questionId: 'bulanti',
+        options: [
+            {
+                optionText: 'EVET',
+                value: 'evet'
+            },
+            {
+                optionText: 'HAYIR',
+                value: 'HAYIR'
+            }
+        ]
+    },
+    {
+        questionType: 'SelectionGroup',
+        questionText:
+            'Baş ağrınız sırasında ışık ağrınızı arttırır mı ya da, baş ağrınız sırasında loş/karanlık bir ortam tercih eder misiniz?',
+        questionId: 'azIsik',
+        options: [
+            {
+                optionText: 'EVET',
+                value: 'evet'
+            },
+            {
+                optionText: 'HAYIR',
+                value: 'HAYIR'
+            }
+        ]
+    },
+    {
+        questionType: 'SelectionGroup',
+        questionText:
+            'Baş ağrınız sırasında, daha önce rahatsız etmeyecek derecedeki sesler sizi rahatsız eder mi ya da baş ağrınız sırasında sessiz bir ortamı tercih eder misiniz?',
+        questionId: 'azSes',
+        options: [
+            {
+                optionText: 'EVET',
+                value: 'evet'
+            },
+            {
+                optionText: 'HAYIR',
+                value: 'HAYIR'
+            }
+        ]
+    },
+    {
+        questionType: 'MultipleSelectionGroup',
+        questionText:
+            'Aşağıda baş ağrısını tetikleyen bir faktör varsa, seçilmelidir.',
+        questionId: 'tetikleyenFaktor',
+        questionSettings: {
+            maxMultiSelect: 6,
+            minMultiSelect: -1,
+        },
+        options: [
+            {
+                optionText: 'Adet Dönemi',
+                value: 'adetDonemi'
+            },
+            {
+                optionText: 'Stres',
+                value: 'stres'
+            },
+            {
+                optionText: 'Öğün Atlamak/Geciktirmek',
+                value: 'ogunAtlamak'
+            },
+            {
+                optionText: 'Az Uyumak',
+                value: 'azUyumak'
+            },
+            {
+                optionText: 'Çok Uyumak',
+                value: 'cokUyumak'
+            },
+            {
+                optionText: 'Parlak/Yanıp-Sönen Işıklar',
+                value: 'parlakIsik'
+            }
+        ]
+    },
+    {
+        questionType: 'MultipleSelectionGroup',
+        questionText:
+            'Aşağıda baş ağrısını tetikleyen bir faktör varsa, seçilmelidir.',
+        questionId: 'tetikleyenFaktor',
+        questionSettings: {
+            maxMultiSelect: 6,
+            minMultiSelect: -1,
+        },
+        options: [
+            {
+                optionText: 'Televizyon/Video Oyunları',
+                value: 'televizyon'
+            },
+            {
+                optionText: 'Keskin Kokular',
+                value: 'kokular'
+            },
+            {
+                optionText: 'Fizik Egzersiz',
+                value: 'egzersiz'
+            },
+            {
+                optionText: 'Hava Şartları (lodos vb)',
+                value: 'havaSartlari'
+            },
+            {
+                optionText: 'Alkol',
+                value: 'alkol'
+            },
+            {
+                optionText: 'Yiyecekler (örneğin; çikolata)',
+                value: 'yiyecekler'
+            }
+        ]
+    },
+    {
+        questionType: 'SelectionGroup',
+        questionText:
+            'Cinsiyetinizi Seçiniz.',
+        questionId: 'cinsiyet',
+        options: [
+            {
+                optionText: 'KADIN',
+                value: 'kadin'
+            },
+            {
+                optionText: 'ERKEK',
+                value: 'erkek'
+            }
+        ]
+    }
+];
+//Ekranin ust kismi
 export default class SurveyScreen extends Component {
     static navigationOptions = () => {
         return {
             headerStyle: {
-                backgroundColor: BLUE,
-                height: 40,
-                elevation: 5,
+                backgroundColor: Yeni,
+                height: 45,
+                elevation: 15,
             },
             headerTintColor: '#fff',
-            headerTitle: 'Sample Survey',
+            headerTitle: 'Baş Ağrısı Takip Uygulaması',
             headerTitleStyle: {
-                flex: 1,
+                flex: 2,
             }
         };
     }
-
+    //Arkaplan
     constructor(props) {
         super(props);
         this.state = { backgroundColor: WHITE };
     }
 
     onSurveyFinished(answers) {
-        /** 
-         *  By using the spread operator, array entries with no values, such as info questions, are removed.
-         *  This is also where a final cleanup of values, making them ready to insert into your DB or pass along
-         *  to the rest of your code, can be done.
-         * 
-         *  Answers are returned in an array, of the form 
-         *  [
-         *  {questionId: string, value: any},
-         *  {questionId: string, value: any},
-         *  ...
-         *  ]
-         *  Questions of type selection group are more flexible, the entirity of the 'options' object is returned
-         *  to you.
-         *  
-         *  As an example
-         *  { 
-         *      questionId: "favoritePet", 
-         *      value: { 
-         *          optionText: "Dogs",
-         *          value: "dog"
-         *      }
-         *  }
-         *  This flexibility makes SelectionGroup an incredibly powerful component on its own. If needed it is a 
-         *  separate NPM package, react-native-selection-group, which has additional features such as multi-selection.
-         */
-
         const infoQuestionsRemoved = [...answers];
 
         // Convert from an array to a proper object. This won't work if you have duplicate questionIds
         const answersAsObj = {};
         for (const elem of infoQuestionsRemoved) { answersAsObj[elem.questionId] = elem.value; }
-
-        this.props.navigation.navigate('SurveyCompleted', { surveyAnswers: answersAsObj });
+        if (answersAsObj.cinsiyet.value == 'kadin'){
+            this.props.navigation.navigate('SurveyScreenWoman', {surveyAnswers: answersAsObj})
+        }
+        else {
+            this.props.navigation.navigate('SurveyCompleted', { surveyAnswers: answersAsObj });
+        }
     }
 
     /**
-     *  After each answer is submitted this function is called. Here you can take additional steps in response to the 
-     *  user's answers. From updating a 'correct answers' counter to exiting out of an onboarding flow if the user is 
-     *  is restricted (age, geo-fencing) from your app.
+     *  Cevaplardan sonra cagirilir
      */
     onAnswerSubmitted(answer) {
         switch (answer.questionId) {
@@ -276,40 +897,40 @@ export default class SurveyScreen extends Component {
                 break;
         }
     }
-
+    //Onceki Butonu
     renderPreviousButton(onPress, enabled) {
         return (
             <View style={{ flexGrow: 1, maxWidth: 100, marginTop: 10, marginBottom: 10 }}>
                 <Button
-                    color={BLUE}
+                    color={Yeni}
                     onPress={onPress}
                     disabled={!enabled}
                     backgroundColor={BLUE}
-                    title={'Previous'}
+                    title={'Önceki'}
                 />
             </View>
         );
     }
-
+    //Sonraki Butonu
     renderNextButton(onPress, enabled) {
         return (
             <View style={{ flexGrow: 1, maxWidth: 100, marginTop: 10, marginBottom: 10 }}>
                 <Button
-                    color={BLUE}
+                    color={Yeni}
                     onPress={onPress}
                     disabled={!enabled}
                     backgroundColor={BLUE}
-                    title={'Next'}
+                    title={'Sonraki'}
                 />
             </View>
         );
     }
-
+    //Bitir
     renderFinishedButton(onPress, enabled) {
         return (
             <View style={{ flexGrow: 1, maxWidth: 100, marginTop: 10, marginBottom: 10 }}>
                 <Button
-                    title={'Finished'}
+                    title={'Bitir'}
                     onPress={onPress}
                     disabled={!enabled}
                     color={BLUE}
@@ -317,7 +938,7 @@ export default class SurveyScreen extends Component {
             </View>
         );
     }
-
+    //Evet Hayir butonu
     renderButton(data, index, isSelected, onPress) {
         return (
             <View
@@ -327,8 +948,8 @@ export default class SurveyScreen extends Component {
                 <Button
                     title={data.optionText}
                     onPress={onPress}
-                    color={isSelected ? BLUE : RED}
-                    style={isSelected ? { fontWeight: 'bold' } : {}} 
+                    color={isSelected ? Yeni : RED}
+                    style={isSelected ? { fontWeight: 'bold' } : {}}
                     key={`button_${index}`}
                 />
             </View>
@@ -364,7 +985,7 @@ export default class SurveyScreen extends Component {
     }
 
     renderNumericInput(onChange, value, onBlur) {
-        return (<TextInput 
+        return (<TextInput
             style={styles.numericInput}
             onChangeText={text => { onChange(text); }}
             underlineColorAndroid={'white'}
@@ -431,6 +1052,7 @@ const styles = StyleSheet.create({
         alignContent: 'center',
         padding: 5
     },
+
     selectionGroupContainer: {
         flexDirection: 'column',
         backgroundColor: WHITE,
@@ -452,7 +1074,7 @@ const styles = StyleSheet.create({
         borderColor: 'rgba(204,204,204,1)',
         backgroundColor: 'white',
         borderRadius: 10,
-        
+
         padding: 10,
         textAlignVertical: 'top',
         marginLeft: 10,
