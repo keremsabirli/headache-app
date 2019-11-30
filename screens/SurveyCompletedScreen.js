@@ -1,14 +1,35 @@
 import React, { Component } from 'react';
+import firebase from 'firebase';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import db from '../src/config'
 
-const GREEN = 'rgba(141,196,63,1)';
-const PURPLE = 'rgba(108,48,237,1)';
+const BLUE = '#0D5182';
+const WHITE = '#F7F4EF';
+const RED = '#C21D2D';
+const PINK = '#F26678';
+const LIGHTBLUE = '#0DAEBF';
+
 const defaultAnswers = { favoriteColor: 'nothing', favoriteNumber: '0', favoritePet: 'nothing' };
+
 export default class SurveyCompletedScreen extends Component {
+    componentDidMount(){
+        const answers = this.props.navigation.getParam('surveyAnswers', defaultAnswers);
+        this.writeSurveyData(answers);
+        db.ref().on
+    }
+    writeSurveyData(data) {
+        db.ref('/surveys').push({
+            data
+        }).then((data)=>{
+            console.log('data ', data)
+        }).catch((error)=>{
+            console.log('error', error)
+        })
+    }
     static navigationOptions = () => {
         return {
             headerStyle: {
-                backgroundColor: GREEN,
+                backgroundColor: WHITE,
                 height: 40,
                 elevation: 5,
             },
@@ -19,10 +40,8 @@ export default class SurveyCompletedScreen extends Component {
             }
         };
     }
-
     render() {
         const answers = this.props.navigation.getParam('surveyAnswers', defaultAnswers);
-
         return (
             <View style={styles.background}>
                 <View style={styles.container}>
@@ -36,9 +55,7 @@ export default class SurveyCompletedScreen extends Component {
                         <Text style={styles.questionText}>When confronted with a radio button you picked: {answers.radio.value}</Text>
                         <Text style={styles.questionText}>When given a default you chose: the {answers.singleDefault.value}</Text>
                         <Text style={styles.questionText}>When given a multiple defaults you chose: the {answers.multipleDefaults[0].value} and the {answers.multipleDefaults[1].value}</Text>
-
-
-                        <Text>Raw JSON: {JSON.stringify(this.props.navigation.getParam('surveyAnswers', {}))}</Text>
+                        
                     </ScrollView>
                 </View>
             </View>
@@ -51,7 +68,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: PURPLE,
+        backgroundColor: BLUE,
     },
     container: {
         minWidth: '70%',
