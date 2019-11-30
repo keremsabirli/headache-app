@@ -10,7 +10,7 @@ const stackNav = createStackNavigator({
         screen: SurveyScreen
     },
     SurveyCompleted: {
-        screen : SurveyCompletedScreen
+        screen: SurveyCompletedScreen
     }
 });
 

@@ -3,13 +3,9 @@ import { StyleSheet, Button, Text, TextInput, View } from 'react-native';
 import { SimpleSurvey } from 'react-native-simple-survey';
 import { COLORS } from '../res/validColors';
 
-
-// COLOR CONSTS
 const BLUE = '#0D5182';
 const WHITE = '#F7F4EF';
 const RED = '#C21D2D';
-const PINK = '#F26678';
-const LIGHTBLUE = '#0DAEBF';
 
 const survey = [
     {
