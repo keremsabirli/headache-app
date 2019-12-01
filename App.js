@@ -6,11 +6,19 @@ import SurveyCompletedScreen from './screens/SurveyCompletedScreen';
 import SurveyScreen from './screens/SurveyScreen';
 import SurveyScreenWoman from './screens/SurveyScreenWoman';
 import MainScreen from './screens/MainScreen';
+import LoginScreen from './screens/LoginScreen';
+import SignUpScreen from './screens/SignUpScreen';
 
 const stackNav = createStackNavigator({
-    // MainScreen: {
-    //     screen: MainScreen
-    // },
+    LoginScreen: {
+        screen: LoginScreen
+    },
+    SignUpScreen: {
+        screen: SignUpScreen
+    },
+    MainScreen: {
+        screen: MainScreen
+    },
     Survey: {
         screen: SurveyScreen
     },
