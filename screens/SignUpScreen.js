@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import firebase from 'firebase';
 import {
     Keyboard,
     Text,
@@ -22,7 +23,14 @@ const Yeni = '#4337b3';
 const appId = '1047121222092614';
 
 export default class LoginScreen extends Component {
-    state = {};
+    constructor(props) {
+        super(props);
+        this.state = {
+            email: '',
+            password: '',
+            error: null
+        }
+    }
     static navigationOptions = () => {
         return {
             headerStyle: {
@@ -47,16 +55,10 @@ export default class LoginScreen extends Component {
                             <TextInput
                                 placeholder="Mail Adresi"
                                 style={styles.loginFormTextInput}
-                                onChangeText={(value) => this.setState({mail: value})}
-                                value={this.state.mail}
+                                onChangeText={(value) => this.setState({email: value})}
+                                value={this.state.email}
                             >
                             </TextInput>
-                            <TextInput
-                                placeholder="Username"
-                                style={styles.loginFormTextInput}
-                                onChangeText={(value) => this.setState({username: value})}
-                                value={this.state.username}
-                            />
                             <TextInput
                                 placeholder="Password"
                                 placeholderColor={WHITE}
@@ -79,20 +81,13 @@ export default class LoginScreen extends Component {
         );
     }
     onSignUpPress() {
-        const mail = this.state.mail;
-        const username = this.state.username;
-        const password = this.state.password;
-        if(mail && username && password) {
-            db.ref('/users').push({
-                mail,
-                username,
-                password
-            });
-            this.props.navigation.navigate('LoginScreen');
-        }
-        else {
-            this.props.navigation.navigate('SignUpScreen');
-        }
+        firebase
+        .auth()
+        .createUserWithEmailAndPassword(this.state.email, this.state.password)
+        .then(() => this.props.navigation.navigate('LoginScreen'))
+        .catch(error => this.props.navigation.navigate('SignUpScreen'))
+            //TODO CHANGE HE ERROR SCREEN
+            
     }
 }
 const styles = StyleSheet.create({

@@ -1,6 +1,6 @@
 {
-  "urlRandomness": "dd-win",
-  "hostType": "lan",
+  "urlRandomness": "fk-v4k",
+  "hostType": "tunnel",
   "lanType": "ip",
   "dev": true,
   "minify": false,

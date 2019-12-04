@@ -22,7 +22,13 @@ const Yeni = '#4337b3';
 const appId = '1047121222092614';
 
 export default class LoginScreen extends Component {
-    state = {};
+    constructor(props) {
+        super(props);
+        this.state = {
+            isLoaded: false,
+            users: {}
+        }
+    }
     static navigationOptions = () => {
         return {
             headerStyle: {
@@ -38,7 +44,10 @@ export default class LoginScreen extends Component {
         };
     }
     render() {
-        console.log(this.state.users);
+        const { isLoaded, users } = this.state;
+        console.log(users);
+        if(isLoaded){
+            console.log(this.state.users)
             return (
                 <KeyboardAvoidingView style={styles.containerView} behavior="padding">
                     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -73,19 +82,26 @@ export default class LoginScreen extends Component {
                     </TouchableWithoutFeedback>
                 </KeyboardAvoidingView>
             );
+        }
+        else {
+            return <View></View>
+        }
     }
 
-    async componentDidMount() {
-        await this.getUserData();
+    componentDidMount() {
+        this.getUserData();
     }
 
-    async onLoginPress() {
+    onLoginPress() {
     }
 
-    async getUserData() {
+    getUserData = () => {
         var recentPostsRef = db.ref('/users');
         recentPostsRef.once('value').then(snapshot => {
-            this.setState({users: snapshot.val()});
+            this.setState({
+                users: snapshot.val(),
+                isLoaded: true
+            });
         });
     }
     onSignupPress() {
