@@ -10,6 +10,7 @@ import {
     StyleSheet
 } from 'react-native';
 import db from '../src/config';
+import firebase from 'firebase';
 import { Button } from 'react-native-elements';
 
 const BLUE = '#0D5182';
@@ -29,6 +30,9 @@ export default class LoginScreen extends Component {
             users: {}
         }
     }
+    componentDidMount() {
+        
+    }
     static navigationOptions = () => {
         return {
             headerStyle: {
@@ -44,10 +48,6 @@ export default class LoginScreen extends Component {
         };
     }
     render() {
-        const { isLoaded, users } = this.state;
-        console.log(users);
-        if(isLoaded){
-            console.log(this.state.users)
             return (
                 <KeyboardAvoidingView style={styles.containerView} behavior="padding">
                     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -55,15 +55,19 @@ export default class LoginScreen extends Component {
                             <View style={styles.loginFormView}>
                                 <Text style={styles.logoText}>Giriş Yap</Text>
                                 <TextInput
-                                    placeholder="Username"
+                                    placeholder="Mail Address"
                                     placeholderColor={WHITE}
                                     style={styles.loginFormTextInput}
+                                    onChangeText={(value) => this.setState({email: value})}
+                                    value={this.state.email}
                                 />
                                 <TextInput
                                     placeholder="Password"
                                     placeholderColor={WHITE}
                                     style={styles.loginFormTextInput}
                                     secureTextEntry={true}
+                                    onChangeText={(value) => this.setState({password: value})}
+                                    value={this.state.password}
                                 />
                                 <View style={styles.buttonContainer}>
                                     <Button
@@ -82,29 +86,35 @@ export default class LoginScreen extends Component {
                     </TouchableWithoutFeedback>
                 </KeyboardAvoidingView>
             );
-        }
-        else {
-            return <View></View>
-        }
-    }
-
-    componentDidMount() {
-        this.getUserData();
     }
 
     onLoginPress() {
+        const { email, password} = this.state;
+        firebase
+            .auth()
+            .signInWithEmailAndPassword(email, password)
+            .then(() => {
+                this.props.navigation.navigate('SurveyScreen');
+                console.log('login success');
+            })
+            .catch(function(error) {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                if (errorCode === 'auth/wrong-password') {
+                  alert('Wrong password.');
+                } else {
+                  alert(errorMessage);
+                }
+                console.log(error);
+                this.props.navigation.navigate('LoginScreen');
+              });
     }
 
     getUserData = () => {
-        var recentPostsRef = db.ref('/users');
-        recentPostsRef.once('value').then(snapshot => {
-            this.setState({
-                users: snapshot.val(),
-                isLoaded: true
-            });
-        });
     }
-    onSignupPress() {
+
+    onSignupPress = () => {
         this.props.navigation.navigate('SignUpScreen');
     }
 }

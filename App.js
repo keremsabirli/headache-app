@@ -19,7 +19,7 @@ const stackNav = createStackNavigator({
     MainScreen: {
         screen: MainScreen
     },
-    Survey: {
+    SurveyScreen: {
         screen: SurveyScreen
     },
     SurveyScreenWoman:  {
