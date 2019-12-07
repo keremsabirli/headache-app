@@ -11,7 +11,7 @@ const defaultAnswers = {};
 
 export default class SurveyCompletedScreen extends Component {
     componentDidMount(){
-        const answers = this.props.navigation.getParam('surveyAnswers', defaultAnswers);
+        const answers = this.props.navigation.getParam('SurveyScreen', defaultAnswers);
         console.log(answers);
     }
     writeSurveyData(data) {

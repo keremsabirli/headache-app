@@ -103,11 +103,12 @@ export default class LoginScreen extends Component {
                 var errorMessage = error.message;
                 if (errorCode === 'auth/wrong-password') {
                   alert('Wrong password.');
+                  this.props.navigation.navigate('LoginScreen');
                 } else {
                   alert(errorMessage);
+                  this.props.navigation.navigate('LoginScreen');
                 }
                 console.log(error);
-                this.props.navigation.navigate('LoginScreen');
               });
     }
 
