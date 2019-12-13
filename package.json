@@ -16,6 +16,7 @@
     "expo-font": "7.0.0",
     "expo-mail-composer": "~7.0.0",
     "firebase": "^7.5.0",
+    "json-beautify": "^1.1.1",
     "prop-types": "15.7.2",
     "react": "16.8.3",
     "react-dom": "16.8.3",
@@ -26,6 +27,7 @@
     "react-native-sendgrid": "^1.0.1",
     "react-native-simple-survey": "2.0.1",
     "react-native-web": "0.11.7",
-    "react-navigation": "^3.0.9"
+    "react-navigation": "^3.0.9",
+    "tableify": "^1.1.0"
   }
 }
