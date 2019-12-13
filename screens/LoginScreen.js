@@ -26,8 +26,7 @@ export default class LoginScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isLoaded: false,
-            users: {}
+            isLoaded: false
         }
     }
     componentDidMount() {
@@ -94,8 +93,7 @@ export default class LoginScreen extends Component {
             .auth()
             .signInWithEmailAndPassword(email, password)
             .then(() => {
-                this.props.navigation.navigate('SurveyScreen');
-                console.log('login success');
+                this.props.navigation.navigate('SurveyScreen', {email: email});
             })
             .catch(function(error) {
                 // Handle Errors here.

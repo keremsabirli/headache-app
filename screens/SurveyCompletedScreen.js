@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import {sendGridEmail} from 'react-native-sendgrid'
 import db from '../src/config';
 const BLUE = '#0D5182';
 const WHITE = '#F7F4EF';
@@ -7,12 +8,27 @@ const RED = '#C21D2D';
 const PINK = '#F26678';
 const LIGHTBLUE = '#0DAEBF';
 
+
+const SENDGRIDAPIKEY = "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";
+const FROMEMAIL = "sauheadache@sau.com";
+const TOEMAIL = "keremsabirli15@gmail.com";
+const SUBJECT = "Headache";
 const defaultAnswers = {};
 
 export default class SurveyCompletedScreen extends Component {
     componentDidMount(){
-        const answers = this.props.navigation.getParam('SurveyScreen', defaultAnswers);
+        const answers = this.props.navigation.getParam('surveyAnswers', defaultAnswers);
         console.log(answers);
+        this.writeSurveyData(answers);
+        this.sendEmailFunction(answers);
+    }
+    sendEmailFunction (data) {
+        const sendRequest = sendGridEmail(SENDGRIDAPIKEY, TOEMAIL, FROMEMAIL, SUBJECT, JSON.stringify(data));
+        sendRequest.then((response) => {
+            console.log("Success")
+        }).catch((error) =>{
+            console.log(error)
+        });
     }
     writeSurveyData(data) {
         db.ref('/surveys').push({

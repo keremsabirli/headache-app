@@ -16,9 +16,9 @@ const stackNav = createStackNavigator({
     SignUpScreen: {
         screen: SignUpScreen
     },
-    MainScreen: {
-        screen: MainScreen
-    },
+    // MainScreen: {
+    //     screen: MainScreen
+    // },
     SurveyScreen: {
         screen: SurveyScreen
     },
