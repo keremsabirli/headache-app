@@ -9,7 +9,7 @@ const PINK = '#F26678';
 const LIGHTBLUE = '#0DAEBF';
 
 
-const SENDGRIDAPIKEY = "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";
+const SENDGRIDAPIKEY = "PUT API KEY HERE";
 const FROMEMAIL = "sauheadache@sau.com";
 const TOEMAIL = "keremsabirli15@gmail.com";
 const SUBJECT = "Headache";
