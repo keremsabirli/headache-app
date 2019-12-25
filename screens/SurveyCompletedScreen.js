@@ -10,7 +10,7 @@ const PINK = '#F26678';
 const LIGHTBLUE = '#0DAEBF';
 
 // YOU NEED TO CHANGE THE API KEY FOR IT TO WORK
-const SENDGRIDAPIKEY = "ASK FOR IT";
+const SENDGRIDAPIKEY = "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";
 const FROMEMAIL = "sauheadache@sau.com";
 const TOEMAIL = "sabirlikerem92@gmail.com";
 const SUBJECT = "Headache";

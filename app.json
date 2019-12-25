@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "react-native-simple-survey-example-app",
+    "name": "sau-headache-app",
     "description": "No description",
     "slug": "snack-7804f1e9-648e-4bc5-b678-7ab27df7a05f",
     "privacy": "unlisted",
@@ -21,8 +21,8 @@
         "xml"
       ]
     },
-    "ios": {
-      "supportsTablet": true
-    }
+	"android": {
+		"package": "com.sauheadache.headache_app"
+	}
   }
 }
